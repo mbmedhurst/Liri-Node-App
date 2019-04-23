@@ -1,18 +1,31 @@
 require("dotenv").config()
 const fs = require('fs')
 const axios = require('axios')
-// const Spotify = require('node-spotify-api')
-// const keys = require("./keys.js")
-// const spotify = new Spotify(keys.spotify)
+const Spotify = require('node-spotify-api')
+const keys = require("./keys.js")
+const spotify = new Spotify({
+  id: process.env.SPOTIFY_ID,
+  secret: process.env.SPOTIFY_SECRET
+})
 const moment = require('moment')
 moment().format()
 const [, , action, name] = process.argv
 
 // // Spotify Function
-// spotify
-//   .search({ type: 'track', query: 'All the Small Things' })
-//   .then(r => console.log(r))
-//   .catch(e => console.log(e))
+let spotifyThis = _ => {
+  spotify.search({ type: 'track', query: `${name}`, limit: 1 })
+    .then(r => {
+      console.log(`
+        Artist: ${r.tracks.items[0].artists[0].name}
+        Song: ${r.tracks.items[0].name}
+        Album: ${r.tracks.items[0].album.name}
+        Listen: ${r.tracks.items[0].external_urls.spotify}
+     `)
+    // console.log(r.tracks.items[0].name)
+    })
+    .catch(e => console.log(e))
+}
+
 
 // Bands In Town Function (Mariah Carey is a good one to use)
 let concertThis = _ => {
@@ -29,8 +42,8 @@ let concertThis = _ => {
     .catch(e => console.log(e))
 }
 
-// OMDB Function
-// still need to add logic if no title is entered
+// // OMDB Function
+// // still need to add logic if no title is entered
 let movieThis = _ => {
   axios.get(`http://www.omdbapi.com/?t=${name}&apikey=31eeab3a`)
     .then(r => {
@@ -49,6 +62,9 @@ let movieThis = _ => {
 }
 
 switch (action) {
+  case 'spotify-this-song':
+    spotifyThis()
+    break
   case 'movie-this':
     movieThis()
     break
