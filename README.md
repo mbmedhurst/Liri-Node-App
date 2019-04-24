@@ -31,7 +31,7 @@ The concert-this command runs a function that returns concert dates for a specif
 
 **Note:** Moment is used to format the concert dates.
 
-![sample concert-this gif](/images/concert-this.gif)
+![sample concert-this gif](./images/concert-this.gif)
 
 ### Spotify-This-Song
 The spotify-this-song command runs a function that returns information about a specified song. The user should enter the command **spotify-this-song "song name"** and hit enter.
