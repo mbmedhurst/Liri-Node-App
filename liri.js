@@ -11,23 +11,25 @@ const moment = require('moment')
 moment().format()
 const [, , action, name] = process.argv
 
-// // Spotify Function
+// Spotify Function
 let spotifyThis = _ => {
-  spotify.search({ type: 'track', query: `${name}`, limit: 1 })
+  spotify.search({ type: 'track', query: `${name}` })
     .then(r => {
-      console.log(`
+      if (name === '') {
+        name = 'the-sign'
+      } else {
+        console.log(`
         Artist: ${r.tracks.items[0].artists[0].name}
         Song: ${r.tracks.items[0].name}
         Album: ${r.tracks.items[0].album.name}
         Listen: ${r.tracks.items[0].external_urls.spotify}
      `)
-    // console.log(r.tracks.items[0].name)
+      }
     })
     .catch(e => console.log(e))
 }
 
-
-// Bands In Town Function (Mariah Carey is a good one to use)
+// Bands In Town Function
 let concertThis = _ => {
   axios.get(`https://rest.bandsintown.com/artists/${name}/events?app_id=codingbootcamp`)
     .then(r => {
@@ -61,6 +63,16 @@ let movieThis = _ => {
     .catch(e => console.log(e))
 }
 
+let doIt = _ => {
+  fs.readFile('./random.txt', 'utf8', (e, data) => {
+    if (e) {
+      console.log(e)
+    } else {
+      console.log(data)
+    }
+  })
+}
+
 switch (action) {
   case 'spotify-this-song':
     spotifyThis()
@@ -70,6 +82,9 @@ switch (action) {
     break
   case 'concert-this':
     concertThis()
+    break
+  case 'do-what-it-says':
+    doIt()
     break
   default:
     console.log('Invalid argument')
