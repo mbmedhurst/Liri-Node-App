@@ -22,7 +22,7 @@ Additionally, you will need to have api keys for the following:
 
 #### Movie-This
 The movie-this command runs a function that returns some basic information about a specified movie.
-The user should enter the command *movie-this "title-of-movie"* and hit enter
+The user should enter the command **movie-this "title-of-movie"** and hit enter
 This returns the following info about the specified movie title:
 * Title
 * Year
@@ -33,4 +33,4 @@ This returns the following info about the specified movie title:
 * Plot
 * Cast
 
-![](images/move-this.jpg)
+![](/images/move-this.jpg)
