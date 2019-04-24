@@ -38,7 +38,7 @@ The spotify-this-song command runs a function that returns information about a s
 
 The system will return the song name, album name, artist name and a link to the song on Spotify.
 
-![sample spotify-this video](/images/spotify-this.mp4)
+**Note:** This file is in the images folder but apparently cannot be embedded into this ReadMe file (/images/spotify-this.mp4)
 
 ### Do-What-It-Says
 This command calls a separate txt file and runs the command that is contained in the file.
