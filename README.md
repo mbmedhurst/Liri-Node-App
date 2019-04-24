@@ -33,4 +33,4 @@ This returns the following info about the specified movie title:
 * Plot
 * Cast
 
-![](./images/move-this.jpg)
+![sample movie-this result](/images/move-this.jpg)
