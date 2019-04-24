@@ -1,7 +1,7 @@
 # liri-node-app
 
 ## Overview
-
+This app allows the user to run a variety of api-based functions to demonstrate the versatility of working with node and npm packages.
 
 
 ## Requirements
@@ -21,16 +21,28 @@ Additionally, you will need to have api keys for the following:
 ## Running the Functions
 
 #### Movie-This
-The movie-this command runs a function that returns some basic information about a specified movie.
-The user should enter the command **movie-this "title-of-movie"** and hit enter
-This returns the following info about the specified movie title:
-* Title
-* Year
-* IMDB Rating
-* Rotten Tomatoes Rating
-* Country
-* Language
-* Plot
-* Cast
+The movie-this command runs a function that returns information about a specified movie.
+The user should enter the command **movie-this "title-of-movie"** and hit enter.
 
 ![sample movie-this result](/images/move-this.jpg)
+
+### Concert-This
+The concert-this command runs a function that returns concert dates for a specified artist. The user should enter the command **concert-this "name of artist"** and hit enter. 
+
+**Note:** Moment is used to format the concert dates.
+
+![sample concert-this gif](/images/concert-this.gif)
+
+### Spotify-This-Song
+The spotify-this-song command runs a function that returns information about a specified song. The user should enter the command **spotify-this-song "song name"** and hit enter.
+
+The system will return the song name, album name, artist name and a link to the song on Spotify.
+
+![sample spotify-this video](/images/spotify-this.mp4)
+
+### Do-What-It-Says (currently not fully working)
+This command calls a separate txt file and runs the command that is contained in the file.
+
+The user should enter **do-what-it-says** on the command line.
+
+![sample do-what-it-says gif](/images/do-it.gif)

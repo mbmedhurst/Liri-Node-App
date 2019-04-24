@@ -15,16 +15,12 @@ const [, , action, name] = process.argv
 let spotifyThis = _ => {
   spotify.search({ type: 'track', query: `${name}` })
     .then(r => {
-      if (name === '') {
-        name = 'the-sign'
-      } else {
-        console.log(`
+      console.log(`
         Artist: ${r.tracks.items[0].artists[0].name}
         Song: ${r.tracks.items[0].name}
         Album: ${r.tracks.items[0].album.name}
         Listen: ${r.tracks.items[0].external_urls.spotify}
      `)
-      }
     })
     .catch(e => console.log(e))
 }
