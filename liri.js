@@ -9,10 +9,11 @@ const spotify = new Spotify({
 })
 const moment = require('moment')
 moment().format()
-const [, , action, name] = process.argv
+const [, , action] = process.argv
 
 // Spotify Function
 let spotifyThis = _ => {
+  let [, , ,name = "Yesterday"] = process.argv
   spotify.search({ type: 'track', query: `${name}` })
     .then(r => {
       console.log(`
@@ -22,7 +23,7 @@ let spotifyThis = _ => {
         Listen: ${r.tracks.items[0].external_urls.spotify}
      `)
     })
-    .catch(e => console.log(e))
+    .catch(e => (e))
 }
 
 // Bands In Town Function
@@ -43,6 +44,7 @@ let concertThis = _ => {
 // // OMDB Function
 // // still need to add logic if no title is entered
 let movieThis = _ => {
+  let [, , ,name = "Mr. Nobody"] = process.argv
   axios.get(`http://www.omdbapi.com/?t=${name}&apikey=31eeab3a`)
     .then(r => {
       console.log(`
