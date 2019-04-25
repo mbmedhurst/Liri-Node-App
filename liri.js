@@ -13,7 +13,7 @@ const [, , action] = process.argv
 
 // Spotify Function
 let spotifyThis = _ => {
-  let [, , ,name = "Yesterday"] = process.argv
+  let [, , , name = "The Lion Sleeps Tonight"] = process.argv
   spotify.search({ type: 'track', query: `${name}` })
     .then(r => {
       console.log(`
@@ -42,9 +42,8 @@ let concertThis = _ => {
 }
 
 // // OMDB Function
-// // still need to add logic if no title is entered
 let movieThis = _ => {
-  let [, , ,name = "Mr. Nobody"] = process.argv
+  let [, , , name = "Mr. Nobody"] = process.argv
   axios.get(`http://www.omdbapi.com/?t=${name}&apikey=31eeab3a`)
     .then(r => {
       console.log(`
@@ -61,14 +60,22 @@ let movieThis = _ => {
     .catch(e => console.log(e))
 }
 
-let doIt = _ => {
+// I haven't been able to make this work yet
+// I can't figure out how to tell the system that the data in random.txt
+// is equal to the action and name in the process.argv
+let doIt = () => {
+  const [, , action, name] = process.argv
+  let data = provess.argv[2,3]
   fs.readFile('./random.txt', 'utf8', (e, data) => {
     if (e) {
       console.log(e)
+    } else if (data.includes('spotify')) {
+      spotifyThis()
     } else {
       console.log(data)
     }
-  })
+  }
+  )
 }
 
 switch (action) {

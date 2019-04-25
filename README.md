@@ -24,27 +24,32 @@ Additionally, you will need to have api keys for the following:
 The movie-this command runs a function that returns information about a specified movie.
 The user should enter the command **movie-this "title-of-movie"** and hit enter.
 
-![sample movie-this result](/images/movieThis.jpg)
+![sample movie-this result](/images/movieThis.gif)
+
+If no movie is specified, Mr. Nobody will be returned by default.
+
+![movie-this default demo](/images/movieThisDefault.gif)
+
 
 ### Concert-This
 The concert-this command runs a function that returns concert dates for a specified artist. The user should enter the command **concert-this "name of artist"** and hit enter. 
-
 **Note:** Moment is used to format the concert dates.
 
 ![sample concert-this gif](/images/concertThis.gif)
 
 ### Spotify-This-Song
 The spotify-this-song command runs a function that returns information about a specified song. The user should enter the command **spotify-this-song "song name"** and hit enter.
-
 The system will return the song name, album name, artist name and a link to the song on Spotify.
 
-**Note:** This file is in the images folder but apparently cannot be embedded into this ReadMe file (/images/spotify-this.mp4)
+**Note:** This video file is in the images folder but apparently cannot be embedded into this ReadMe file (/images/spotify-this.mp4)
+
+If no song is specified, "The Lion Sleeps Tonight" by The Tokens will be returned by default.
+
+![spotify default demo](/images/spotifyDefault.gif)
+
 
 ### Do-What-It-Says
 This command calls a separate txt file and runs the command that is contained in the file.
-
 The user should enter **do-what-it-says** on the command line.
 
-**Note:** I can get the text to log to the console but I can't figure out yet how to get that text to execute as a command.
-
-![sample do-what-it-says gif](/images/do-it.gif)
+(Unfortunately not working yet)
