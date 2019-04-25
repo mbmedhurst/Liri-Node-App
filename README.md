@@ -41,7 +41,7 @@ The concert-this command runs a function that returns concert dates for a specif
 The spotify-this-song command runs a function that returns information about a specified song. The user should enter the command **spotify-this-song "song name"** and hit enter.
 The system will return the song name, album name, artist name and a link to the song on Spotify.
 
-**Note:** This video file is in the images folder but apparently cannot be embedded into this ReadMe file (/images/spotify-this.mp4)
+**Note: There is a super-cool video file in the images folder demonstrating this function (/images/spotify-this.mp4).**
 
 If no song is specified, "The Lion Sleeps Tonight" by The Tokens will be returned by default.
 
