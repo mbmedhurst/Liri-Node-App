@@ -9,11 +9,13 @@ const spotify = new Spotify({
 })
 const moment = require('moment')
 moment().format()
-const [, , action] = process.argv
+let [, , action, name] = process.argv
 
 // Spotify Function
 let spotifyThis = _ => {
-  let [, , , name = "The Lion Sleeps Tonight"] = process.argv
+  if (name === undefined) {
+    name = "The Lion Sleeps Tonight"
+  }
   spotify.search({ type: 'track', query: `${name}` })
     .then(r => {
       console.log(`
@@ -41,9 +43,11 @@ let concertThis = _ => {
     .catch(e => console.log(e))
 }
 
-// // OMDB Function
+// OMDB Function
 let movieThis = _ => {
-  let [, , , name = "Mr. Nobody"] = process.argv
+  if (name === undefined) {
+    name = "Mr. Nobody"
+  }
   axios.get(`http://www.omdbapi.com/?t=${name}&apikey=31eeab3a`)
     .then(r => {
       console.log(`
@@ -60,37 +64,39 @@ let movieThis = _ => {
     .catch(e => console.log(e))
 }
 
-// I haven't been able to make this work yet
-// I can't figure out how to tell the system that the data in random.txt
-// is equal to the action and name in the process.argv
-let doIt = () => {
-  const [, , action, name] = process.argv
-  let data = provess.argv[2,3]
+// Do What It Says Function
+// command is taken from random.txt file
+// thanks to Justin & Katie for your help on this
+// this took me way too long to figure out
+let doIt = _ => {
   fs.readFile('./random.txt', 'utf8', (e, data) => {
-    if (e) {
-      console.log(e)
-    } else if (data.includes('spotify')) {
+    let dataArr = data.split(',')
+    action = dataArr[0]
+    name = dataArr[1]
+    if(action === 'spotify-this-song') {
       spotifyThis()
-    } else {
-      console.log(data)
+    } else if(action === 'concert-this') {
+      concertThis() 
+    } else if(action === 'movie-this') {
+      movieThis()
     }
-  }
-  )
+  })
 }
 
+// switchcase for all of the functions
 switch (action) {
-  case 'spotify-this-song':
-    spotifyThis()
-    break
-  case 'movie-this':
-    movieThis()
-    break
-  case 'concert-this':
-    concertThis()
-    break
-  case 'do-what-it-says':
-    doIt()
-    break
-  default:
-    console.log('Invalid argument')
-}
+    case 'spotify-this-song':
+      spotifyThis()
+      break
+    case 'movie-this':
+      movieThis()
+      break
+    case 'concert-this':
+      concertThis()
+      break
+    case 'do-what-it-says':
+      doIt()
+      break
+    default:
+      console.log('Invalid argument')
+  }

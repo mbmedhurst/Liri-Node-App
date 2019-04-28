@@ -52,4 +52,4 @@ If no song is specified, "The Lion Sleeps Tonight" by The Tokens will be returne
 This command calls a separate txt file and runs the command that is contained in the file.
 The user should enter **do-what-it-says** on the command line.
 
-(Unfortunately not working yet)
+![do-what-it-says demo](/images/doIt.gif)
