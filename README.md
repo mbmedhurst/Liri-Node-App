@@ -1,21 +1,21 @@
-# liri-node-app
+## liri-node-app
 
-## Overview
+### Description
 This app allows the user to run a variety of api-based functions to demonstrate the versatility of working with node and npm packages.
 
 
-## Requirements
-You will need to have the following npm packages installed:
+### Technologies Used
 * axios
 * fs
 * node-spotify-api
 * dotenv
-* moment
+* moment.js
 
-Additionally, you will need to have api keys for the following:
-* spotify (ID and Secret are required)
-* omdb
-* bandsintown
+### To Run on Local Machine
+* clone git repository
+* install dependencies by running **_npm install_** in the global directory
+* run **_nodemon_** or **_node liri.js_** in the terminal
+* enter commands into the terminal as described in the **_Running the Functions_** section below
 
 
 ## Running the Functions
